@@ -1,0 +1,1 @@
+### This folder will have scripts and documents corresponding to IoT and External Devices
