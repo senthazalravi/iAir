@@ -1,0 +1,136 @@
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+  <div class="row mt-5">
+      <div class="col-md-6 m-auto">
+        <div class="card card-body">
+          <h1 class="text-center mb-3">
+            <i class="fas fa-user-plus"></i> Register
+          </h1>
+
+          <%- include ("./partials/messages"); %>
+          
+          <form action="/users/register" method="POST">
+            
+            <div class="form-group">
+              <label for="userName">User Name</label>
+              <input
+                type="userName"
+                id="userName"
+                name="userName"
+                class="form-control"
+                placeholder="Enter a User Name"
+                value="<%= typeof userName != 'undefined' ? userName : '' %>"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="firstName"
+                id="firstName"
+                name="firstName"
+                class="form-control"
+                placeholder="Enter First Name"
+                value="<%= typeof firstName != 'undefined' ? firstName : '' %>"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="lastName"
+                id="lastName"
+                name="lastName"
+                class="form-control"
+                placeholder="Enter Last Name"
+                value="<%= typeof lastName != 'undefined' ? lastName : '' %>"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="Enter Email"
+                value="<%= typeof email != 'undefined' ? email : '' %>"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="phone"
+                id="phone"
+                name="phone"
+                class="form-control"
+                placeholder="Enter Phone"
+                value="<%= typeof phone != 'undefined' ? phone : '' %>"
+              />
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="radio inline">
+                    <input type="radio" id="radio-2" name="gender" value="Male">
+                    <label for="radio-2" class="radio-label">Male</label>
+                </div>
+                <div class="radio inline">
+                    <input type="radio" id="radio-3" name="gender" value="Female">
+                    <label for="radio-3" class="radio-label">Female</label>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="gender">Status</label>
+                <div class="radio inline">
+                    <input type="radio" id="radio-4" name="status" value="Active">
+                    <label for="radio-4" class="radio-label">Active</label>
+                </div>
+                <div class="radio inline">
+                    <input type="radio" id="radio-5" name="status" value="Inactive">
+                    <label for="radio-5" class="radio-label">Inactive</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-control"
+                placeholder="Create Password"
+                value="<%= typeof password != 'undefined' ? password : '' %>"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="password2">Confirm Password</label>
+              <input
+                type="password"
+                id="password2"
+                name="password2"
+                class="form-control"
+                placeholder="Confirm Password"
+                value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+              />
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">
+              Register
+            </button>
+          </form>
+          <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- include header -->
+<%- include('include/_footer') %>
+<!-- /include header -->

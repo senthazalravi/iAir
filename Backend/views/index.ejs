@@ -1,0 +1,50 @@
+
+<!-- Include header -->
+    <%-include('include/_headerAdmin')%>
+<!-- /Include header -->
+
+    <!--  Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nov d-flex justify-between">
+                <a href="/admin/add-user" class="border-shadow">
+                    <span class="text-gradient">New User <i class="fas fa-user"></i></span>
+                </a>
+            </div>
+
+            <br>
+
+            <div class="box-nov d-flex justify-between">
+                <a href="/users/logout" class="border-shadow">
+                    <span class="text-gradient"></span>Logout <i class="fas fa-sign-out-alt"></i></span>
+                </a>
+            </div>
+
+            <!--  form handling-->
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>User Name</th>
+                            <th>@Email</th>
+                            <th>Gender</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- Include show -->
+                            <%-include('include/_showAdmin')%>
+                        <!-- /Include show -->
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!--  Main Site -->
+
+<!-- Include footer -->
+    <%-include('include/_footerAdmin')%>
+<!-- /Include footer -->

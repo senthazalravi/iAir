@@ -1,0 +1,20 @@
+const express = require('express');
+const router = express.Router();
+const { ensureAuthenticated, isAdmin } = require('../../config/auth');
+
+// Welcome Page
+router.get('/', (req, res) => res.render('welcome'));
+
+// Dashboard
+router.get('/dashboard', ensureAuthenticated, (req, res) =>
+    res.render('dashboard', {
+        user: req.user
+    }));
+
+// Admin
+router.get('/admin', ensureAuthenticated, (req, res) => 
+    res.render('index', {
+        user: req.user
+    }));
+
+module.exports = router;
