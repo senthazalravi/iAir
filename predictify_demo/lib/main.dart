@@ -7,6 +7,8 @@
 // ![](https://flutter.github.io/assets-for-api-docs/assets/widgets/form.png)
 
 import 'package:flutter/material.dart';
+import 'package:predictify_ai/screens/login.dart';
+import 'package:predictify_ai/screens/signup.dart';
 
 void main() => runApp(const MyApp());
 
@@ -14,7 +16,7 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'WELCOME to IAIR-LOGIN';
+  static const String _title = 'WELCOME to IAIR';
 
   @override
   Widget build(BuildContext context) {
@@ -47,169 +49,70 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return new Scaffold(
       key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: new Stack(
         children: <Widget>[
-          Align(
-            alignment: Alignment.center,
-            child: Image.asset(
-              "images/logo.jpeg",
-              height: 100,
+          new Container(
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                image: new AssetImage("images/backgroundimg1.jpg"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 50.0, vertical: 8.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Username',
-                  hintStyle: TextStyle(color: Colors.black),
-                  filled: true,
-                  fillColor: Colors.teal.shade200,
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(50)),
-                ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              )),
-          Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 50.0, vertical: 8.0),
-              child: TextFormField(
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                  hintText: 'password',
-                  hintStyle: TextStyle(color: Colors.black),
-                  filled: true,
-                  fillColor: Colors.teal.shade200,
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(50)),
-                ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return '******';
-                  }
-                  return null;
-                },
-              )),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Center(
+            padding: const EdgeInsets.only(top: 20.0, left: 120.0),
+            child: Text(
+              "PREDICTIFY",
+              style: TextStyle(
+                  fontSize: 30.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Georgia'),
+            ),
+          ),
+          Container(
+            width: 250,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 450.0, left: 170.0),
               child: ElevatedButton(
                 style: ButtonStyle(
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.white),
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.red.shade900),
+                        MaterialStateProperty.all<Color>(Colors.teal),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
-                            side: BorderSide(color: Colors.teal, width: 2.0)))),
+                            side: BorderSide(color: Colors.red, width: 2.0)))),
                 onPressed: () {
-                  // Validate will return true if the form is valid, or false if
-                  // the form is invalid.
-                  if (_formKey.currentState!.validate()) {
-                    // Process data.
-                  }
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => login()),
+                  );
                 },
                 child: const Text('LOGIN'),
               ),
             ),
           ),
           Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: Center(
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text("Forgot your Password?",
-                      style: TextStyle(fontSize: 14.0, color: Colors.black)),
+              padding: const EdgeInsets.only(top: 492.0, left: 115.0),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => signup()),
+                  );
+                },
+                child: Text(
+                  "New to Predictify? SIGNUP",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              )),
-          Container(
-              height: 60,
-              width: 500,
-              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 6),
-              child: ElevatedButton.icon(
-                  label: Text(
-                    'Sign in with Google',
-                    style: TextStyle(
-                      color: Colors.black.withOpacity(0.6),
-                    ),
-                  ),
-                  icon: Image.asset("images/google.png", height: 30),
-                  style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.black),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                              side:
-                                  BorderSide(color: Colors.teal, width: 3.0)))),
-                  onPressed: () {
-                    print('Pressed');
-                  })),
-          Container(
-              height: 60,
-              width: 500,
-              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 6),
-              child: ElevatedButton.icon(
-                  label: Text(
-                    'Sign in with Facebook',
-                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
-                  icon: Image.asset("images/facebook.png", height: 30),
-                  style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.black),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                              side:
-                                  BorderSide(color: Colors.teal, width: 3.0)))),
-                  onPressed: () {
-                    print('Pressed');
-                  })),
-          Container(
-              height: 60,
-              width: 500,
-              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 6),
-              child: ElevatedButton.icon(
-                label: Text('Sign in with Twitter',
-                    style: TextStyle(color: Colors.black.withOpacity(0.6))),
-                icon: Image.asset("images/twitter.png", height: 30),
-                style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            side: BorderSide(color: Colors.teal, width: 3.0)))),
-                onPressed: () {},
-              )),
-          TextButton(
-              onPressed: () {
-                /*...*/
-              },
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Text("New to Predictify? SIGNUP",
-                    style:
-                        TextStyle(fontSize: 14.0, color: Colors.red.shade900),
-                    textAlign: TextAlign.right),
               )),
         ],
       ),

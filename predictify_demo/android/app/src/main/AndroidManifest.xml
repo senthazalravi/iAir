@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iair.predictify_ai">
    <application
-        android:label="predictify_ai"
+        android:label="Predictify"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
