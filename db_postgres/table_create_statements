@@ -1,0 +1,119 @@
+-- Table: public.user_login_data
+
+-- DROP TABLE public.user_login_data;
+
+CREATE TABLE IF NOT EXISTS public.user_login_data
+(
+    user_id character varying(25)  NOT NULL,
+    user_name character varying(35) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(35) COLLATE pg_catalog."default" NOT NULL,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT user_login_data_pkey PRIMARY KEY (user_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.user_login_data
+    OWNER to postgres;
+
+
+    -- Table: public.user_personal_data
+
+-- DROP TABLE public.user_personal_data;
+
+CREATE TABLE IF NOT EXISTS public.user_personal_data
+(
+    user_id character varying(25)  NOT NULL,
+    first_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    second_name character varying(50) COLLATE pg_catalog."default",
+    email character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    phone character varying(50) COLLATE pg_catalog."default",
+    address character varying(255) COLLATE pg_catalog."default",
+    phone_verified boolean,
+    email_verified boolean,
+    country character varying(35) COLLATE pg_catalog."default",
+    date_of_birth date,
+    gender character varying(15) COLLATE pg_catalog."default",
+    created_on timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    last_login timestamp without time zone,
+    CONSTRAINT user_personal_data_email_key UNIQUE (email),
+    CONSTRAINT user_personal_data_phone_key UNIQUE (phone),
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id)
+        REFERENCES public.user_login_data (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.user_personal_data
+    OWNER to postgres;
+
+--Table IOT
+
+-- Table: public.user_iot
+
+-- DROP TABLE public.user_iot;
+
+CREATE TABLE IF NOT EXISTS public.user_iot
+(
+    user_id character varying(25) NOT NULL,
+    unique_id bigint NOT NULL,
+    email character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    device_name character varying(55) COLLATE pg_catalog."default",
+    model_number character varying(55) COLLATE pg_catalog."default",
+    storage_capacity integer,
+    communication character varying(25) COLLATE pg_catalog."default",
+    data_security character varying(25) COLLATE pg_catalog."default",
+    battery_life numeric(5,2),
+    created_on timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_user_id_iot FOREIGN KEY (user_id)
+        REFERENCES public.user_login_data (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.user_iot
+    OWNER to postgres;
+
+-- Table: public.user_prediction_input
+
+-- DROP TABLE public.user_prediction_input;
+
+CREATE TABLE IF NOT EXISTS public.user_prediction_input
+(
+    user_id character varying(20) COLLATE pg_catalog."default",
+    age integer NOT NULL,
+    gender character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    height double precision NOT NULL,
+    weight double precision NOT NULL,
+    ethnicity character varying(20) COLLATE pg_catalog."default",
+    country character varying(50) COLLATE pg_catalog."default",
+    effected_diseases character varying(200) COLLATE pg_catalog."default",
+    healthy_eating_habits character varying(200) COLLATE pg_catalog."default",
+    physical_activity character varying(20) COLLATE pg_catalog."default",
+    obesity character varying(20) COLLATE pg_catalog."default",
+    stress_and_anxiety character varying(200) COLLATE pg_catalog."default",
+    poor_sleep character varying(20) COLLATE pg_catalog."default",
+    smoking character varying(20) COLLATE pg_catalog."default",
+    alcoholism character varying(20) COLLATE pg_catalog."default",
+    any_surgeries character varying(20) COLLATE pg_catalog."default",
+    family_health_issues character varying(20) COLLATE pg_catalog."default",
+    other character varying(200) COLLATE pg_catalog."default",
+    created_on timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT userid_prediction_fk FOREIGN KEY (user_id)
+        REFERENCES public.user_login_data (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT user_prediction_input_gender_check CHECK (gender::text = ANY (ARRAY['Male'::character varying, 'Female'::character varying, 'Unknown'::character varying]::text[])),
+    CONSTRAINT user_prediction_input_physical_activity_check CHECK (physical_activity::text = ANY (ARRAY['Regularly'::character varying, 'Weekly'::character varying, 'Rarely'::character varying]::text[])),
+    CONSTRAINT user_prediction_input_smoking_check CHECK (smoking::text = ANY (ARRAY['Yes'::character varying, 'No'::character varying, 'Rarely'::character varying]::text[])),
+    CONSTRAINT user_prediction_input_alcoholism_check CHECK (alcoholism::text = ANY (ARRAY['yes'::character varying, 'No'::character varying, 'Rarely'::character varying]::text[]))
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.user_prediction_input
+    OWNER to postgres;

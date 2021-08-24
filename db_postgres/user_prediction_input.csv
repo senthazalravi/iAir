@@ -1,0 +1,11 @@
+user_id;age;gender;height;weight;ethnicity;country;effected_diseases;healthy_eating_habits;physical_activity;obesity;stress_and_anxiety;poor_sleep;smoking;alcoholism;any_surgeries;family_health_issues;other
+1;45;Male;155.6;67;Asian;India;heart diseases;yes;Regularly;Yes;Yes;Yes;Yes;yes;Yes;Yes;nil
+2;35;Female;167.3;75;European;Swedan;covid19;no;Weekly;No;No;No;No;No;No;No;nil
+3;67;Male;155.7;58;American;california;cancer;rarely;Rarely;Yes;Rarely;Rarely;Rarely;Rarely;Yes;Yes;nil
+4;28;Female;167.4;60;Asian;India;chronic diseases;yes;Regularly;No;Yes;Yes;Yes;yes;No;No;nil
+5;30;Male;155.8;65;European;Swedan;covid19;no;Weekly;Yes;No;No;No;No;Yes;Yes;nil
+6;56;Female;167.5;70;American;california;Astuma;rarely;Rarely;No;Rarely;Rarely;Rarely;Rarely;No;No;nil
+7;37;Male;155.9;75;Asian;India;heart;yes;Regularly;Yes;Yes;Yes;Yes;yes;Yes;Yes;nil
+8;38;Female;167.6;80;European;Swedan;nil;no;Weekly;No;No;No;No;No;No;No;nil
+9;48;Male;155.1;85;American;california;liver diseases;rarely;Rarely;Yes;Rarely;Rarely;Rarely;Rarely;Yes;Yes;nil
+10;52;Female;167.7;90;Asian;India;diabetes;yes;Regularly;No;Yes;Yes;Yes;yes;No;No;nil

@@ -1,0 +1,11 @@
+user_id;unique_id;email;device_name;model_number;storage_capacity;communication;data_security;battery_life;created_on
+1;12345678001;email001@predictify.com;device_001;model_001;50;LAN;High;3.00;2021-08-03 15:00:47.664866
+2;12345678002;email002@predictify.com;device_002;model_002;100;WAN;Average;4.00;2021-08-03 15:00:47.664866
+3;12345678003;email003@predictify.com;device_003;model_003;128;WI-FI;Low;5.00;2021-08-03 15:00:47.664866
+4;12345678004;email004@predictify.com;device_004;model_004;50;BLUETOOTH;High;1.00;2021-08-03 15:00:47.664866
+5;12345678005;email005@predictify.com;device_005;model_005;100;LAN;Average;2.00;2021-08-03 15:00:47.664866
+6;12345678006;email006@predictify.com;device_006;model_006;128;WAN;Low;1.50;2021-08-03 15:00:47.664866
+7;12345678007;email007@predictify.com;device_007;model_007;50;WI-FI;High;1.00;2021-08-03 15:00:47.664866
+8;12345678008;email008@predictify.com;device_008;model_008;100;BLUETOOTH;Average;0.50;2021-08-03 15:00:47.664866
+9;12345678009;email009@predictify.com;device_009;model_009;128;LAN;Low;4.00;2021-08-03 15:00:47.664866
+10;12345678010;email010@predictify.com;device_010;model_010;50;WAN;High;7.80;2021-08-03 15:00:47.664866

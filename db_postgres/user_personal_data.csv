@@ -1,0 +1,11 @@
+user_id;first_name;secon_name;email;phone;address;phone_verified;email_verified;country;date_of_birth;gender
+1;fn_001;sn_001;email001@predictify.com;62000001;address 1;0;1;Sweden;;M
+2;fn_002;sn_002;email002@predictify.com;62000002;address 2;0;1;Netherlands;;F
+3;fn_003;sn_003;email003@predictify.com;62000003;address 3;0;1;USA;;O
+4;fn_004;sn_004;email004@predictify.com;62000004;address 4;0;1;UK;;F
+5;fn_005;sn_005;email005@predictify.com;62000005;address 5;0;1;India;;O
+6;fn_006;sn_006;email006@predictify.com;62000006;address 6;0;1;UAE;;F
+7;fn_007;sn_007;email007@predictify.com;62000007;address 7;0;1;Saudi Arabia;;O
+8;fn_008;sn_008;email008@predictify.com;62000008;address 8;0;1;Norway;;F
+9;fn_009;sn_009;email009@predictify.com;62000009;address 9;0;1;Romania;;M
+10;fn_010;sn_010;email010@predictify.com;62000010;address 10;0;1;China;;F
